@@ -7,40 +7,39 @@
 
 char* binaryToHex(char* binaryString) {
     int decimalNumber = strtol(binaryString, NULL, 2);
-    char* hexString = (char*)malloc(6 * sizeof(char)); // 5 digits + '\0' terminator
+    char* hexString = (char*)malloc(6 * sizeof(char)); 
 
     if (hexString == NULL) {
         return "ERROR";
     }
 
-    // Format the decimal number as hexadecimal with leading zeros
     snprintf(hexString, 6, "%05X", decimalNumber);
 
     return hexString;
 }
 char *getBinaryRepresentation10(char *numberString)
 {
-    int number = atoi(numberString); // Convert the input string to an integer
+    int number = atoi(numberString); 
 
     if (number < 0 || number > 1023)
     {
-        return "ERROR"; // Handle invalid input range
+        return "ERROR"; 
     }
 
-    char *binaryString = (char *)malloc(11 * sizeof(char)); // 10 digits + '\0' terminator
+    char *binaryString = (char *)malloc(11 * sizeof(char)); 
 
     if (binaryString == NULL)
     {
-        return "ERROR"; // Memory allocation failure
+        return "ERROR"; 
     }
 
     for (int i = 9; i >= 0; --i)
     {
-        binaryString[i] = (number & 1) + '0'; // Extract the least significant bit
-        number >>= 1;                         // Shift to the right
+        binaryString[i] = (number & 1) + '0'; 
+        number >>= 1;
     }
 
-    binaryString[10] = '\0'; // Null-terminate the string
+    binaryString[10] = '\0'; 
 
     return binaryString;
 }
@@ -161,24 +160,19 @@ char *removeCommaAtEnd(char *str)
 
 char *concatenateStrings(char *str1, char *str2)
 {
-    // Calculate the length of the resulting string
     size_t len1 = strlen(str1);
     size_t len2 = strlen(str2);
 
-    // Allocate memory for the resulting string
     char *result = (char *)malloc(len1 + len2 + 1);
 
-    // Check if memory allocation was successful
     if (result == NULL)
     {
         fprintf(stderr, "Memory allocation error\n");
         exit(EXIT_FAILURE);
     }
 
-    // Copy the first string to the result
     strcpy(result, str1);
 
-    // Concatenate the second string to the result
     strcat(result, str2);
 
     return result;
@@ -326,32 +320,21 @@ int main()
         }
         binaryOutput = concatenateStrings("00",binaryOutput);
         hexOutput = concatenateStrings(binaryToHex(binaryOutput), " ");
-        printf("binary output is : %s\n", binaryOutput);
-        printf("hex output is : %s\n", hexOutput);
-
         strncpy(outputLines[commandNumber], hexOutput, sizeof(outputLines[commandNumber]) - 1);
         outputLines[commandNumber][sizeof(outputLines[commandNumber]) - 1] = '\0'; // Ensure null-termination
-
-        for (int j = 0; j < tokenCount; j++)
-        {
-            printf("Token %d: %s\n", j + 1, tokens[j]);
-        }
     }
 
     // output to file
-    FILE *output_file = fopen("output.txt", "w");
-
+    FILE *output_file = fopen("output.raw", "w");
     if (output_file == NULL)
     {
         perror("Error opening output file");
         return 1;
     }
-
     for (int i = 0; i < line_count; i++)
     {
         fprintf(output_file, "%s", outputLines[i]);
     }
-
     fclose(file);
     return 0;
 }
