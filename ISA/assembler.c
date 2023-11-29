@@ -5,6 +5,19 @@
 #define MAX_LINES 1000
 #define MAX_LINE_LENGTH 100
 
+char* binaryToHex(char* binaryString) {
+    int decimalNumber = strtol(binaryString, NULL, 2);
+    char* hexString = (char*)malloc(6 * sizeof(char)); // 5 digits + '\0' terminator
+
+    if (hexString == NULL) {
+        return "ERROR";
+    }
+
+    // Format the decimal number as hexadecimal with leading zeros
+    snprintf(hexString, 6, "%05X", decimalNumber);
+
+    return hexString;
+}
 char *getBinaryRepresentation10(char *numberString)
 {
     int number = atoi(numberString); // Convert the input string to an integer
@@ -230,6 +243,7 @@ int main()
     // Assembler
     short tokenCount;
     char *binaryOutput = "";
+    char *hexOutput = "";
     for (int commandNumber = 0; commandNumber < line_count; commandNumber++)
     {
         char **tokens = tokenizeString(&inputLines[commandNumber][0], &tokenCount);
@@ -258,42 +272,65 @@ int main()
         else if (!strcmp("JMP", tokens[0]))
         {
             binaryOutput = "0010";
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
+            binaryOutput = concatenateStrings(binaryOutput, "0000");
         }
         else if (!strcmp("LD", tokens[0]))
         {
             binaryOutput = "0011";
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[2]));
         }
         else if (!strcmp("ST", tokens[0]))
         {
             binaryOutput = "0100";
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[2]));
         }
         else if (!strcmp("CMP", tokens[0]))
         {
             binaryOutput = "0101";
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
+            binaryOutput = concatenateStrings(binaryOutput, "000000");
         }
         else if (!strcmp("JE", tokens[0]))
         {
             binaryOutput = "0110";
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
+            binaryOutput = concatenateStrings(binaryOutput, "0000");
         }
         else if (!strcmp("JA", tokens[0]))
         {
             binaryOutput = "0111";
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
+            binaryOutput = concatenateStrings(binaryOutput, "0000");
         }
         else if (!strcmp("JB", tokens[0]))
         {
             binaryOutput = "1000";
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
+            binaryOutput = concatenateStrings(binaryOutput, "0000");
         }
         else if (!strcmp("JAE", tokens[0]))
         {
             binaryOutput = "1001";
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
+            binaryOutput = concatenateStrings(binaryOutput, "0000");
         }
         else if (!strcmp("JBE", tokens[0]))
         {
             binaryOutput = "1010";
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
+            binaryOutput = concatenateStrings(binaryOutput, "0000");
         }
-
+        binaryOutput = concatenateStrings("00",binaryOutput);
+        hexOutput = concatenateStrings(binaryToHex(binaryOutput), " ");
         printf("binary output is : %s\n", binaryOutput);
+        printf("hex output is : %s\n", hexOutput);
+
+        strncpy(outputLines[commandNumber], hexOutput, sizeof(outputLines[commandNumber]) - 1);
+        outputLines[commandNumber][sizeof(outputLines[commandNumber]) - 1] = '\0'; // Ensure null-termination
 
         for (int j = 0; j < tokenCount; j++)
         {
@@ -312,7 +349,7 @@ int main()
 
     for (int i = 0; i < line_count; i++)
     {
-        fprintf(output_file, "%s", inputLines[i]);
+        fprintf(output_file, "%s", outputLines[i]);
     }
 
     fclose(file);
