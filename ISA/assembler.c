@@ -5,6 +5,59 @@
 #define MAX_LINES 1000
 #define MAX_LINE_LENGTH 100
 
+char *getBinaryRepresentation10(char *numberString)
+{
+    int number = atoi(numberString); // Convert the input string to an integer
+
+    if (number < 0 || number > 1023)
+    {
+        return "ERROR"; // Handle invalid input range
+    }
+
+    char *binaryString = (char *)malloc(11 * sizeof(char)); // 10 digits + '\0' terminator
+
+    if (binaryString == NULL)
+    {
+        return "ERROR"; // Memory allocation failure
+    }
+
+    for (int i = 9; i >= 0; --i)
+    {
+        binaryString[i] = (number & 1) + '0'; // Extract the least significant bit
+        number >>= 1;                         // Shift to the right
+    }
+
+    binaryString[10] = '\0'; // Null-terminate the string
+
+    return binaryString;
+}
+
+char *getBinaryRepresentation6(char *input)
+{
+    int number = atoi(input);
+    if (number < 0 || number > 63)
+    {
+        return "ERROR"; // Handle invalid input range
+    }
+
+    char *binaryString = (char *)malloc(7 * sizeof(char)); // 6 digits + '\0' terminator
+
+    if (binaryString == NULL)
+    {
+        return "ERROR"; // Memory allocation failure
+    }
+
+    for (int i = 5; i >= 0; --i)
+    {
+        binaryString[i] = (number & 1) + '0'; // Extract the least significant bit
+        number >>= 1;                         // Shift to the right
+    }
+
+    binaryString[6] = '\0'; // Null-terminate the string
+
+    return binaryString;
+}
+
 char *getBinaryForRegister(char *registerIdentifier)
 {
     if (strcmp(registerIdentifier, "R0") == 0)
@@ -193,14 +246,19 @@ int main()
             binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
             binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[3]));
+            binaryOutput = concatenateStrings(binaryOutput, "00");
         }
         else if (!strcmp("ADDI", tokens[0]))
         {
             binaryOutput = "0001";
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation6(tokens[3]));
         }
         else if (!strcmp("JMP", tokens[0]))
         {
             binaryOutput = "0010";
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
         }
         else if (!strcmp("LD", tokens[0]))
         {
