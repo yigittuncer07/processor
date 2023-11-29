@@ -5,6 +5,79 @@
 #define MAX_LINES 1000
 #define MAX_LINE_LENGTH 100
 
+char *getBinaryForRegister(char *registerIdentifier)
+{
+    if (strcmp(registerIdentifier, "R0") == 0)
+    {
+        return "0000";
+    }
+    else if (strcmp(registerIdentifier, "R1") == 0)
+    {
+        return "0001";
+    }
+    else if (strcmp(registerIdentifier, "R2") == 0)
+    {
+        return "0010";
+    }
+    else if (strcmp(registerIdentifier, "R3") == 0)
+    {
+        return "0011";
+    }
+    else if (strcmp(registerIdentifier, "R4") == 0)
+    {
+        return "0100";
+    }
+    else if (strcmp(registerIdentifier, "R5") == 0)
+    {
+        return "0101";
+    }
+    else if (strcmp(registerIdentifier, "R6") == 0)
+    {
+        return "0110";
+    }
+    else if (strcmp(registerIdentifier, "R7") == 0)
+    {
+        return "0111";
+    }
+    else if (strcmp(registerIdentifier, "R8") == 0)
+    {
+        return "1000";
+    }
+    else if (strcmp(registerIdentifier, "R9") == 0)
+    {
+        return "1001";
+    }
+    else if (strncmp(registerIdentifier, "R10", 3) == 0)
+    {
+        return "1010";
+    }
+    else if (strncmp(registerIdentifier, "R11", 3) == 0)
+    {
+        return "1011";
+    }
+    else if (strncmp(registerIdentifier, "R12", 3) == 0)
+    {
+        return "1100";
+    }
+    else if (strncmp(registerIdentifier, "R13", 3) == 0)
+    {
+        return "1101";
+    }
+    else if (strncmp(registerIdentifier, "R14", 3) == 0)
+    {
+        return "1110";
+    }
+    else if (strncmp(registerIdentifier, "R15", 3) == 0)
+    {
+        return "1111";
+    }
+    else
+    {
+        printf("cannot identify register %s", registerIdentifier);
+        return "ERROR"; // Invalid register
+    }
+}
+
 char *removeCommaAtEnd(char *str)
 {
     size_t len = strlen(str);
@@ -25,8 +98,6 @@ char *concatenateStrings(char *str1, char *str2)
     // Calculate the length of the resulting string
     size_t len1 = strlen(str1);
     size_t len2 = strlen(str2);
-
-    printf("%d,%d\n", len1, len2);
 
     // Allocate memory for the resulting string
     char *result = (char *)malloc(len1 + len2 + 1);
@@ -114,11 +185,14 @@ int main()
         {
             tokens[p] = removeCommaAtEnd(tokens[p]);
         }
-        
+
         char *temp;
         if (!strcmp("ADD", tokens[0]))
         {
             binaryOutput = "0000";
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[3]));
         }
         else if (!strcmp("ADDI", tokens[0]))
         {
