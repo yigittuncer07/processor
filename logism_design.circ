@@ -190,8 +190,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="tristate" val="false"/>
     </comp>
   </circuit>
-  <circuit name="2bit-adder">
-    <a name="circuit" val="2bit-adder"/>
+  <circuit name="2-bit-adder">
+    <a name="circuit" val="2-bit-adder"/>
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
@@ -276,6 +276,16 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <path d="M61,56 Q65,66 69,56" fill="none" stroke="#808080" stroke-width="2"/>
+      <rect fill="none" height="30" stroke="#000000" stroke-width="2" width="30" x="50" y="55"/>
+      <circ-port height="8" pin="110,100" width="8" x="46" y="56"/>
+      <circ-port height="8" pin="110,170" width="8" x="46" y="66"/>
+      <circ-port height="8" pin="90,210" width="8" x="46" y="76"/>
+      <circ-port height="10" pin="400,140" width="10" x="75" y="65"/>
+      <circ-port height="10" pin="440,140" width="10" x="75" y="55"/>
+      <circ-anchor facing="east" height="6" width="6" x="77" y="57"/>
+    </appear>
     <wire from="(140,80)" to="(200,80)"/>
     <wire from="(180,140)" to="(180,160)"/>
     <wire from="(300,140)" to="(400,140)"/>
@@ -334,12 +344,12 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(90,210)" name="Pin">
       <a name="tristate" val="false"/>
     </comp>
-    <comp loc="(300,150)" name="2bit-adder"/>
+    <comp loc="(300,150)" name="2-bit-adder"/>
     <comp lib="0" loc="(110,100)" name="Pin">
       <a name="width" val="4"/>
       <a name="tristate" val="false"/>
     </comp>
-    <comp loc="(230,100)" name="2bit-adder"/>
+    <comp loc="(230,100)" name="2-bit-adder"/>
     <comp lib="6" loc="(62,149)" name="Text">
       <a name="text" val="B"/>
     </comp>
@@ -352,6 +362,95 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="bit1" val="0"/>
       <a name="bit2" val="1"/>
       <a name="bit3" val="1"/>
+    </comp>
+  </circuit>
+  <circuit name="8-bit-adder">
+    <a name="circuit" val="8-bit-adder"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <wire from="(310,120)" to="(310,190)"/>
+    <wire from="(210,110)" to="(270,110)"/>
+    <wire from="(210,170)" to="(210,180)"/>
+    <wire from="(210,180)" to="(330,180)"/>
+    <wire from="(360,180)" to="(410,180)"/>
+    <wire from="(480,130)" to="(480,150)"/>
+    <wire from="(260,130)" to="(260,210)"/>
+    <wire from="(410,100)" to="(410,130)"/>
+    <wire from="(410,150)" to="(410,180)"/>
+    <wire from="(210,160)" to="(250,160)"/>
+    <wire from="(410,150)" to="(450,150)"/>
+    <wire from="(230,170)" to="(330,170)"/>
+    <wire from="(170,210)" to="(260,210)"/>
+    <wire from="(310,190)" to="(330,190)"/>
+    <wire from="(360,170)" to="(380,170)"/>
+    <wire from="(250,120)" to="(250,160)"/>
+    <wire from="(170,180)" to="(190,180)"/>
+    <wire from="(170,130)" to="(190,130)"/>
+    <wire from="(250,120)" to="(270,120)"/>
+    <wire from="(210,120)" to="(230,120)"/>
+    <wire from="(400,100)" to="(410,100)"/>
+    <wire from="(230,120)" to="(230,170)"/>
+    <wire from="(480,150)" to="(490,150)"/>
+    <wire from="(300,120)" to="(310,120)"/>
+    <wire from="(260,130)" to="(270,130)"/>
+    <wire from="(300,110)" to="(380,110)"/>
+    <wire from="(380,120)" to="(380,170)"/>
+    <wire from="(410,130)" to="(480,130)"/>
+    <comp lib="0" loc="(450,150)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(170,130)" name="Pin">
+      <a name="width" val="8"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(190,180)" name="Splitter">
+      <a name="incoming" val="8"/>
+      <a name="bit1" val="0"/>
+      <a name="bit2" val="0"/>
+      <a name="bit3" val="0"/>
+      <a name="bit4" val="1"/>
+      <a name="bit5" val="1"/>
+      <a name="bit6" val="1"/>
+      <a name="bit7" val="1"/>
+    </comp>
+    <comp loc="(360,170)" name="4-bit-adder"/>
+    <comp lib="0" loc="(170,180)" name="Pin">
+      <a name="width" val="8"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(170,210)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(400,100)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="incoming" val="8"/>
+      <a name="bit1" val="0"/>
+      <a name="bit2" val="0"/>
+      <a name="bit3" val="0"/>
+      <a name="bit4" val="1"/>
+      <a name="bit5" val="1"/>
+      <a name="bit6" val="1"/>
+      <a name="bit7" val="1"/>
+    </comp>
+    <comp loc="(300,110)" name="4-bit-adder"/>
+    <comp lib="0" loc="(190,130)" name="Splitter">
+      <a name="incoming" val="8"/>
+      <a name="bit1" val="0"/>
+      <a name="bit2" val="0"/>
+      <a name="bit3" val="0"/>
+      <a name="bit4" val="1"/>
+      <a name="bit5" val="1"/>
+      <a name="bit6" val="1"/>
+      <a name="bit7" val="1"/>
+    </comp>
+    <comp lib="0" loc="(490,150)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="8"/>
+      <a name="labelloc" val="east"/>
     </comp>
   </circuit>
 </project>
