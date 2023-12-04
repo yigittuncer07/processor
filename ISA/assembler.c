@@ -263,7 +263,7 @@ int main()
             binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
             binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation6(tokens[3]));
         }
-        else if (!strcmp("JMP", tokens[0]))
+        else if (!strcmp("JUMP", tokens[0]))
         {
             binaryOutput = "0010";
             binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
