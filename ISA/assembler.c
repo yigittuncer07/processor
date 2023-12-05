@@ -318,6 +318,34 @@ int main()
             binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, "0000");
         }
+        else if (!strcmp("AND", tokens[0]))
+        {
+            binaryOutput = "1011";
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation6(tokens[3]));
+        }
+        else if (!strcmp("ANDI", tokens[0]))
+        {
+            binaryOutput = "1100";
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation6(tokens[3]));
+        }
+        else if (!strcmp("NOR", tokens[0]))
+        {
+            binaryOutput = "1101";
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation6(tokens[3]));
+        }
+        else if (!strcmp("NAND", tokens[0]))
+        {
+            binaryOutput = "1110";
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation6(tokens[3]));
+        }
         binaryOutput = concatenateStrings("00",binaryOutput);
         hexOutput = concatenateStrings(binaryToHex(binaryOutput), " ");
         strncpy(outputLines[commandNumber], hexOutput, sizeof(outputLines[commandNumber]) - 1);
