@@ -263,83 +263,83 @@ int main()
             binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
             binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation6(tokens[3]));
         }
-        else if (!strcmp("JUMP", tokens[0]))
+        else if (!strcmp("AND", tokens[0]))
         {
             binaryOutput = "0010";
             binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, "0000");
         }
-        else if (!strcmp("LD", tokens[0]))
+        else if (!strcmp("ANDI", tokens[0]))
         {
             binaryOutput = "0011";
             binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[2]));
         }
-        else if (!strcmp("ST", tokens[0]))
+        else if (!strcmp("NOR", tokens[0]))
         {
             binaryOutput = "0100";
             binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[2]));
         }
-        else if (!strcmp("CMP", tokens[0]))
+        else if (!strcmp("NAND", tokens[0]))
         {
             binaryOutput = "0101";
             binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
             binaryOutput = concatenateStrings(binaryOutput, "000000");
         }
-        else if (!strcmp("JE", tokens[0]))
+        else if (!strcmp("JMP", tokens[0]))
         {
             binaryOutput = "0110";
             binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, "0000");
         }
-        else if (!strcmp("JA", tokens[0]))
+        else if (!strcmp("LD", tokens[0]))
         {
             binaryOutput = "0111";
             binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, "0000");
         }
-        else if (!strcmp("JB", tokens[0]))
+        else if (!strcmp("ST", tokens[0]))
         {
             binaryOutput = "1000";
             binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, "0000");
         }
-        else if (!strcmp("JAE", tokens[0]))
+        else if (!strcmp("CMP", tokens[0]))
         {
             binaryOutput = "1001";
             binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, "0000");
         }
-        else if (!strcmp("JBE", tokens[0]))
+        else if (!strcmp("JE", tokens[0]))
         {
             binaryOutput = "1010";
             binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, "0000");
         }
-        else if (!strcmp("AND", tokens[0]))
+        else if (!strcmp("JA", tokens[0]))
         {
             binaryOutput = "1011";
             binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
             binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation6(tokens[3]));
         }
-        else if (!strcmp("ANDI", tokens[0]))
+        else if (!strcmp("JB", tokens[0]))
         {
             binaryOutput = "1100";
             binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
             binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation6(tokens[3]));
         }
-        else if (!strcmp("NOR", tokens[0]))
+        else if (!strcmp("JAE", tokens[0]))
         {
             binaryOutput = "1101";
             binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
             binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation6(tokens[3]));
         }
-        else if (!strcmp("NAND", tokens[0]))
+        else if (!strcmp("JBE", tokens[0]))
         {
             binaryOutput = "1110";
             binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
