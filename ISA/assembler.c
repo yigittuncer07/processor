@@ -5,11 +5,13 @@
 #define MAX_LINES 1000
 #define MAX_LINE_LENGTH 100
 
-char* binaryToHex(char* binaryString) {
+char *binaryToHex(char *binaryString)
+{
     int decimalNumber = strtol(binaryString, NULL, 2);
-    char* hexString = (char*)malloc(6 * sizeof(char)); 
+    char *hexString = (char *)malloc(6 * sizeof(char));
 
-    if (hexString == NULL) {
+    if (hexString == NULL)
+    {
         return "ERROR";
     }
 
@@ -19,27 +21,27 @@ char* binaryToHex(char* binaryString) {
 }
 char *getBinaryRepresentation10(char *numberString)
 {
-    int number = atoi(numberString); 
+    int number = atoi(numberString);
 
     if (number < 0 || number > 1023)
     {
-        return "ERROR"; 
+        return "ERROR";
     }
 
-    char *binaryString = (char *)malloc(11 * sizeof(char)); 
+    char *binaryString = (char *)malloc(11 * sizeof(char));
 
     if (binaryString == NULL)
     {
-        return "ERROR"; 
+        return "ERROR";
     }
 
     for (int i = 9; i >= 0; --i)
     {
-        binaryString[i] = (number & 1) + '0'; 
+        binaryString[i] = (number & 1) + '0';
         number >>= 1;
     }
 
-    binaryString[10] = '\0'; 
+    binaryString[10] = '\0';
 
     return binaryString;
 }
@@ -266,27 +268,33 @@ int main()
         else if (!strcmp("AND", tokens[0]))
         {
             binaryOutput = "0010";
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
-            binaryOutput = concatenateStrings(binaryOutput, "0000");
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[3]));
+            binaryOutput = concatenateStrings(binaryOutput, "00");
         }
         else if (!strcmp("ANDI", tokens[0]))
         {
             binaryOutput = "0011";
             binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[2]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation6(tokens[3]));
         }
         else if (!strcmp("NOR", tokens[0]))
         {
             binaryOutput = "0100";
             binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[2]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[3]));
+            binaryOutput = concatenateStrings(binaryOutput, "00");
         }
         else if (!strcmp("NAND", tokens[0]))
         {
             binaryOutput = "0101";
             binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
-            binaryOutput = concatenateStrings(binaryOutput, "000000");
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[3]));
+            binaryOutput = concatenateStrings(binaryOutput, "00");
         }
         else if (!strcmp("JMP", tokens[0]))
         {
@@ -297,20 +305,21 @@ int main()
         else if (!strcmp("LD", tokens[0]))
         {
             binaryOutput = "0111";
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
-            binaryOutput = concatenateStrings(binaryOutput, "0000");
         }
         else if (!strcmp("ST", tokens[0]))
         {
             binaryOutput = "1000";
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
-            binaryOutput = concatenateStrings(binaryOutput, "0000");
         }
         else if (!strcmp("CMP", tokens[0]))
         {
             binaryOutput = "1001";
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
-            binaryOutput = concatenateStrings(binaryOutput, "0000");
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
+            binaryOutput = concatenateStrings(binaryOutput, "000000");
         }
         else if (!strcmp("JE", tokens[0]))
         {
@@ -321,32 +330,28 @@ int main()
         else if (!strcmp("JA", tokens[0]))
         {
             binaryOutput = "1011";
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation6(tokens[3]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
+            binaryOutput = concatenateStrings(binaryOutput, "0000");
         }
         else if (!strcmp("JB", tokens[0]))
         {
             binaryOutput = "1100";
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation6(tokens[3]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
+            binaryOutput = concatenateStrings(binaryOutput, "0000");
         }
         else if (!strcmp("JAE", tokens[0]))
         {
             binaryOutput = "1101";
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation6(tokens[3]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
+            binaryOutput = concatenateStrings(binaryOutput, "0000");
         }
         else if (!strcmp("JBE", tokens[0]))
         {
             binaryOutput = "1110";
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[1]));
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryForRegister(tokens[2]));
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation6(tokens[3]));
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
+            binaryOutput = concatenateStrings(binaryOutput, "0000");
         }
-        binaryOutput = concatenateStrings("00",binaryOutput);
+        binaryOutput = concatenateStrings("00", binaryOutput);
         hexOutput = concatenateStrings(binaryToHex(binaryOutput), " ");
         strncpy(outputLines[commandNumber], hexOutput, sizeof(outputLines[commandNumber]) - 1);
         outputLines[commandNumber][sizeof(outputLines[commandNumber]) - 1] = '\0'; // Ensure null-termination
