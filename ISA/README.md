@@ -31,7 +31,7 @@
 - **Command:** ADDI R5, R13, 63
 - **Binary Encoding:** `0001 0101 1101 111111`
 
-### AND DST, SRC1, IMM
+### AND DST, SRC1, SRC2
 - **Command:** ADDI R5, R13, 63
 - **Binary Encoding:** `0010 0101 1101 111111`
 
@@ -39,11 +39,11 @@
 - **Command:** ADDI R5, R13, 63
 - **Binary Encoding:** `0011 0101 1101 111111`
 
-### NOR DST, SRC1, IMM
+### NOR DST, SRC1, SRC2
 - **Command:** ADDI R5, R13, 63
 - **Binary Encoding:** `0100 0101 1101 111111`
 
-### NAND DST, SRC1, IMM
+### NAND DST, SRC1, SRC2
 - **Command:** ADDI R5, R13, 63
 - **Binary Encoding:** `0101 0101 1101 111111`
 
