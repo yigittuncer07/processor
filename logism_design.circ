@@ -3202,47 +3202,25 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <wire from="(420,440)" to="(420,510)"/>
-    <wire from="(350,570)" to="(410,570)"/>
     <wire from="(540,240)" to="(590,240)"/>
     <wire from="(200,150)" to="(320,150)"/>
     <wire from="(200,140)" to="(640,140)"/>
-    <wire from="(200,430)" to="(320,430)"/>
-    <wire from="(430,420)" to="(430,430)"/>
-    <wire from="(440,410)" to="(440,420)"/>
-    <wire from="(220,440)" to="(220,590)"/>
     <wire from="(590,240)" to="(590,260)"/>
     <wire from="(610,240)" to="(610,260)"/>
-    <wire from="(120,590)" to="(220,590)"/>
-    <wire from="(420,510)" to="(460,510)"/>
-    <wire from="(220,440)" to="(320,440)"/>
     <wire from="(150,160)" to="(180,160)"/>
     <wire from="(540,70)" to="(540,240)"/>
     <wire from="(620,280)" to="(770,280)"/>
-    <wire from="(440,410)" to="(470,410)"/>
     <wire from="(280,60)" to="(310,60)"/>
     <wire from="(280,80)" to="(310,80)"/>
     <wire from="(600,150)" to="(600,260)"/>
     <wire from="(610,240)" to="(640,240)"/>
     <wire from="(320,150)" to="(600,150)"/>
     <wire from="(640,140)" to="(640,240)"/>
-    <wire from="(430,420)" to="(440,420)"/>
-    <wire from="(200,380)" to="(200,430)"/>
-    <wire from="(470,410)" to="(480,410)"/>
-    <wire from="(350,430)" to="(430,430)"/>
     <wire from="(320,90)" to="(320,150)"/>
-    <wire from="(130,380)" to="(200,380)"/>
     <wire from="(340,70)" to="(540,70)"/>
-    <wire from="(350,450)" to="(350,570)"/>
-    <wire from="(350,440)" to="(420,440)"/>
     <comp lib="0" loc="(280,60)" name="Constant">
       <a name="width" val="8"/>
       <a name="value" val="0x0"/>
-    </comp>
-    <comp lib="0" loc="(470,410)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
     </comp>
     <comp lib="0" loc="(280,80)" name="Constant">
       <a name="width" val="8"/>
@@ -3252,20 +3230,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="width" val="10"/>
       <a name="tristate" val="false"/>
     </comp>
-    <comp lib="0" loc="(460,510)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(410,570)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(130,380)" name="Pin">
-      <a name="width" val="18"/>
-      <a name="tristate" val="false"/>
-    </comp>
     <comp lib="0" loc="(770,280)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
@@ -3273,7 +3237,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="tristate" val="false"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp loc="(350,430)" name="18-bit-comparator"/>
     <comp lib="2" loc="(340,70)" name="Multiplexer">
       <a name="width" val="8"/>
       <a name="enable" val="false"/>
@@ -3311,10 +3274,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="bit15" val="2"/>
       <a name="bit16" val="2"/>
       <a name="bit17" val="2"/>
-    </comp>
-    <comp lib="0" loc="(120,590)" name="Pin">
-      <a name="width" val="18"/>
-      <a name="tristate" val="false"/>
     </comp>
   </circuit>
 </project>
