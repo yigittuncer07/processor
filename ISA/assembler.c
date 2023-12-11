@@ -5,6 +5,17 @@
 #define MAX_LINES 1000
 #define MAX_LINE_LENGTH 100
 
+int startsWithMinus(char *str)
+{
+    if (str[0] == '-')
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
 char *binaryToHex(char *binaryString)
 {
     int decimalNumber = strtol(binaryString, NULL, 2);
@@ -42,6 +53,33 @@ char *getBinaryRepresentation10(char *numberString)
     }
 
     binaryString[10] = '\0';
+
+    return binaryString;
+}
+
+char *getBinaryRepresentation9(char *numberString)
+{
+    int number = atoi(numberString);
+
+    if (number < 0 || number > 511)
+    {
+        return "ERROR";
+    }
+
+    char *binaryString = (char *)malloc(10 * sizeof(char));
+
+    if (binaryString == NULL)
+    {
+        return "ERROR";
+    }
+
+    for (int i = 8; i >= 0; --i)
+    {
+        binaryString[i] = (number & 1) + '0';
+        number >>= 1;
+    }
+
+    binaryString[9] = '\0';
 
     return binaryString;
 }
@@ -299,7 +337,15 @@ int main()
         else if (!strcmp("JMP", tokens[0]))
         {
             binaryOutput = "0110";
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
+            if (startsWithMinus(tokens[1]))
+            {
+                binaryOutput = concatenateStrings(binaryOutput, "1");
+            }
+            else
+            {
+                binaryOutput = concatenateStrings(binaryOutput, "0");
+            }
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation9(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, "0000");
         }
         else if (!strcmp("LD", tokens[0]))
