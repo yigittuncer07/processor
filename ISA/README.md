@@ -47,9 +47,9 @@
 - **Command:** ADDI R5, R13, 63
 - **Binary Encoding:** `0101 0101 1101 111111`
 
-### JUMP ADDR
+### JMP ADDR
 - **Command:** JMP 9
-- **Binary Encoding:** `0110 0000001001 0000`
+- **Binary Encoding:** `0110 0 000001001 0000`
 
 ### LD DST, ADDR
 - **Command:** LD R5, 9
