@@ -410,6 +410,7 @@ int main()
         perror("Error opening output file");
         return 1;
     }
+    fprintf(output_file, "v2.0 raw\n");
     for (int i = 0; i < line_count; i++)
     {
         fprintf(output_file, "%s", outputLines[i]);
