@@ -337,6 +337,7 @@ int main()
         else if (!strcmp("JMP", tokens[0]))
         {
             binaryOutput = "0110";
+            binaryOutput = concatenateStrings(binaryOutput, "0000");
             if (startsWithMinus(tokens[1]))
             {
                 binaryOutput = concatenateStrings(binaryOutput, "1");
@@ -346,7 +347,6 @@ int main()
                 binaryOutput = concatenateStrings(binaryOutput, "0");
             }
             binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation9(tokens[1]));
-            binaryOutput = concatenateStrings(binaryOutput, "0000");
         }
         else if (!strcmp("LD", tokens[0]))
         {
@@ -370,32 +370,32 @@ int main()
         else if (!strcmp("JE", tokens[0]))
         {
             binaryOutput = "1010";
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, "0000");
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
         }
         else if (!strcmp("JA", tokens[0]))
         {
             binaryOutput = "1011";
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, "0000");
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
         }
         else if (!strcmp("JB", tokens[0]))
         {
             binaryOutput = "1100";
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, "0000");
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
         }
         else if (!strcmp("JAE", tokens[0]))
         {
             binaryOutput = "1101";
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, "0000");
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
         }
         else if (!strcmp("JBE", tokens[0]))
         {
             binaryOutput = "1110";
-            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
             binaryOutput = concatenateStrings(binaryOutput, "0000");
+            binaryOutput = concatenateStrings(binaryOutput, getBinaryRepresentation10(tokens[1]));
         }
         binaryOutput = concatenateStrings("00", binaryOutput);
         hexOutput = concatenateStrings(binaryToHex(binaryOutput), " ");

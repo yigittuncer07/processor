@@ -49,7 +49,7 @@
 
 ### JMP ADDR
 - **Command:** JMP 9
-- **Binary Encoding:** `0110 0 000001001 0000`
+- **Binary Encoding:** `0110 0000 0 000001001`
 
 ### LD DST, ADDR
 - **Command:** LD R5, 9
@@ -65,23 +65,23 @@
 
 ### JE ADDR
 - **Command:** JE 9
-- **Binary Encoding:** `1010 0000001001 0000`
+- **Binary Encoding:** `1010 0000 0000001001`
 
 ### JA ADDR
 - **Command:** JA 9
-- **Binary Encoding:** `1011 0000001001 0000`
+- **Binary Encoding:** `1011 0000 0000001001`
 
 ### JB ADDR
 - **Command:** JB 9
-- **Binary Encoding:** `1100 0000001001 0000`
+- **Binary Encoding:** `1100 0000 0000001001`
 
 ### JAE ADDR
 - **Command:** JAE 9
-- **Binary Encoding:** `1101 0000001001 0000`
+- **Binary Encoding:** `1101 0000 0000001001`
 
 ### JBE ADDR
 - **Command:** JBE 9
-- **Binary Encoding:** `1110 0000001001 0000`
+- **Binary Encoding:** `1110 0000 0000001001`
 
 ## Input File
 ```plaintext
