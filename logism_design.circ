@@ -245,6 +245,10 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="text" val="ROM"/>
       <a name="font" val="SansSerif bold 24"/>
     </comp>
+    <comp lib="0" loc="(2460,1020)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="COMP"/>
+    </comp>
     <comp lib="0" loc="(1260,1050)" name="Constant"/>
     <comp lib="0" loc="(1330,1080)" name="Tunnel">
       <a name="label" val="MEM_READ"/>
@@ -360,10 +364,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(2110,970)" name="Tunnel">
       <a name="width" val="4"/>
       <a name="label" val="REG_OUT"/>
-    </comp>
-    <comp lib="0" loc="(2460,1020)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="MEM_READ"/>
     </comp>
     <comp lib="0" loc="(2820,310)" name="Tunnel">
       <a name="label" val="PC_ENABLE"/>
