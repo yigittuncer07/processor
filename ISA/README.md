@@ -1,19 +1,3 @@
-# Command and Register Encoding
-
-## Command Encoding
-- **Commands (4 bits):**
-  - `0000` -> add
-  - `0001` -> addi
-  - `0010` -> jump
-  - `0011` -> ld
-  - `0100` -> st
-  - `0101` -> cmp
-  - `0110` -> je
-  - `0111` -> ja
-  - `1000` -> jb
-  - `1001` -> jae
-  - `1010` -> jbe
-
 ## Register Encoding
 - **Registers (4 bits):**
   - R1 -> `0000`
