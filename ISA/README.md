@@ -24,12 +24,12 @@
 - **Binary Encoding:** `0011 0101 1101 111111`
 
 ### NOR DST, SRC1, SRC2
-- **Command:** ADDI R5, R13, 63
-- **Binary Encoding:** `0100 0101 1101 111111`
+- **Command:** ADDI R5, R13
+- **Binary Encoding:** `0100 0101 1101 1111 00`
 
 ### NAND DST, SRC1, SRC2
-- **Command:** ADDI R5, R13, 63
-- **Binary Encoding:** `0101 0101 1101 111111`
+- **Command:** ADDI R5, R13
+- **Binary Encoding:** `0101 0101 1101 1111 00`
 
 ### JMP ADDR
 - **Command:** JMP 9
