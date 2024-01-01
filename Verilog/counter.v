@@ -1,4 +1,4 @@
-module ProgramCounter (
+module program_counter (
     input [9:0] ADDRESS,
     input JMP_SGNL,
     input PC_ENABLE,
