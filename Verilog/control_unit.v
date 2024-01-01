@@ -1,4 +1,3 @@
-
 module ControlUnit (
     input [17:0] INPUT,
     input ZF,

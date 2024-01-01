@@ -60,23 +60,21 @@ module ControlUnit (
   );
 
   // Output assignments
-assign ADDRESS = INPUT[9:0];
-assign IMM = {6'b0, INPUT[5:0]};
-assign REG0 = INPUT[9:6];
-assign REG1 = INPUT[5:2];
-assign REG_DEST = INPUT[13:10];
-
-assign PC_ENABLE = |(add_and | addI | andI | nr | nnd | jmp | ld | st | comp | je | ja | jb | jae | jbe);
-assign ALU_OP = (add_and && (INPUT[17] == 0)) ? 2'b00 :
-               (add_and && (INPUT[17] == 1)) ? 2'b01 :
-               (nr) ? 2'b10 :
-               (nnd) ? 2'b11 :
-               2'b00; // Default value
-assign IS_IMMEDIATE = (addI | andI);
-assign ALU_CONTROL = (add_and || addI || andI || nr || nnd) ? 1'b1 : 1'b0;
-
-assign MEM_READ = ld;
-assign MEM_WRITE = st;
+  assign ADDRESS = INPUT[9:0];
+  assign IMM = {6'b0, INPUT[5:0]};
+  assign REG0 = INPUT[9:6];
+  assign REG1 = INPUT[5:2];
+  assign REG_DEST = INPUT[13:10];
+  assign PC_ENABLE = |(add_and | addI | andI | nr | nnd | jmp | ld | st | comp | je | ja | jb | jae | jbe);
+  assign ALU_OP = (add_and && (INPUT[17] == 0)) ? 2'b00 :
+                 (add_and && (INPUT[17] == 1)) ? 2'b01 :
+                 (nr) ? 2'b10 :
+                 (nnd) ? 2'b11 :
+                 2'b00; // Default value
+  assign IS_IMMEDIATE = (addI | andI);
+  assign ALU_CONTROL = (add_and || addI || andI || nr || nnd) ? 1'b1 : 1'b0;
+  assign MEM_READ = ld;
+  assign MEM_WRITE = st;
   assign COMP_SIGNAL = comp;
   assign JUMP_SIGNAL = je | ja | jb | jae | jbe;
   assign REG_WRITE = (ld || st || ALU_CONTROL) ? 1'b1 : 1'b0;
