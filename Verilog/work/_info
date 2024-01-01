@@ -1,0 +1,75 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA/18.1
+vALU
+Z0 !s110 1704111236
+!i10b 1
+!s100 <iElcm7JTR<1Y>dnd2GF_0
+II40;1W]CM>S?e4gReCI4n1
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/admin/Desktop/processor/Verilog
+w1704107266
+8ALU.v
+FALU.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1704111236.000000
+Z5 !s107 ALU.v|C:/Users/admin/Desktop/processor/Verilog/processor.v|
+Z6 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/admin/Desktop/processor/Verilog/processor.v|
+!i113 1
+Z7 o-work work
+Z8 tCvgOpt 0
+n@a@l@u
+vControlUnit
+!s110 1704113834
+!i10b 1
+!s100 9cBQQ5cn<fogSk]eLXQ>=0
+Id>1:mk1oa?h2b>83Y7PKC3
+R1
+R2
+w1704113829
+8C:/Users/admin/Desktop/processor/Verilog/control_unit.v
+FC:/Users/admin/Desktop/processor/Verilog/control_unit.v
+L0 2
+R3
+r1
+!s85 0
+31
+!s108 1704113834.000000
+!s107 C:/Users/admin/Desktop/processor/Verilog/control_unit.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/admin/Desktop/processor/Verilog/control_unit.v|
+!i113 1
+R7
+R8
+n@control@unit
+vprocessor
+R0
+!i10b 1
+!s100 o]O1DFCaW<B0omzRZDlAO1
+IUi`];DdE?e]3>YG[h<jOI1
+R1
+R2
+w1704111234
+8C:/Users/admin/Desktop/processor/Verilog/processor.v
+FC:/Users/admin/Desktop/processor/Verilog/processor.v
+L0 4
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+R8

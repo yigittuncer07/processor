@@ -1,0 +1,20 @@
+module ALU (
+    input [17:0] INPUT_A,
+    input [17:0] INPUT_B,
+    input [1:0] ALU_OP,
+    output reg [17:0] result
+);
+
+always @(*)
+begin
+    // Implement your ALU operations based on ALU_OP
+    case (ALU_OP)
+        2'b00: result = INPUT_A + INPUT_B;  // Addition
+        2'b01: result = INPUT_A & INPUT_B;  // AND
+        2'b10: result = ~(INPUT_A | INPUT_B);  // NOR
+        2'b11: result = ~(INPUT_A & INPUT_B);  // NAND
+        default: result = 18'b0;  // Default case
+    endcase
+end
+
+endmodule
