@@ -6,8 +6,8 @@ module register_file(
   input REG_WRITE_ENABLE,
   input CPU_CLOCK,
   input CLEAR,
-  output reg [17:0] READ_DATA_1,
-  output reg [17:0] READ_DATA_2
+  output [17:0] READ_DATA_1,
+  output [17:0] READ_DATA_2
 );
 
   reg [17:0] registers [0:15]; 
